@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"; 
 import './App.css';
-import Video from './Video';
 import Home from './Home';
 import Upload from './Upload';
 import ShortUpload from './ShortUpload';
