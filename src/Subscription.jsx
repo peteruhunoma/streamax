@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 export default function SubscriptionsPage() {
   // Mobile responsive sidebar navigation drawer state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   // Filter state for filtering feed by categories or specific content status
   const [activeFilter, setActiveFilter] = useState('All');
@@ -43,12 +44,24 @@ export default function SubscriptionsPage() {
 
 
   useEffect(() => {
-    subsChannel();
+    
+
+    const fetchData = async () => {
+      setIsLoading(true);
+      await Promise.all([ subsChannel()]);
+      setIsLoading(false);
+    };
+    fetchData();
   }, [])
   
 
   return (
-    <div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-[#dae2fd]">
+
+    <>
+    {isLoading ? (
+      <div>loading</div>
+    ) : (
+<div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-[#dae2fd]">
       
       {/* Navigation Headers */}
       <Header onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
@@ -168,5 +181,8 @@ export default function SubscriptionsPage() {
         </div>
       </main>
     </div>
+    )}
+    </>
+    
   );
 }

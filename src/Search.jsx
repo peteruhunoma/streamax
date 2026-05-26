@@ -9,6 +9,7 @@ import { AuthContext } from './auth';
 function Search() {
   const { currentuser } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   
@@ -37,12 +38,23 @@ function Search() {
 
   useEffect(() => {
     if (query) {
-      fetchSearchResults();
+      const fetchData = async () => {
+        setIsLoading(true);
+        await Promise.all([fetchSearchResults()]);
+        setIsLoading(false);
+      };
+      
+      fetchData();
+
     }
   }, [query]);
 
   return (
-    <div className="font-body min-h-screen bg-[#060e20] text-on-surface selection:bg-primary selection:text-on-primary">
+    <>
+    {isLoading ? (
+      <div>loading</div>
+    ):(
+<div className="font-body min-h-screen bg-[#060e20] text-on-surface selection:bg-primary selection:text-on-primary">
       <Header onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
       
       <SideNav isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
@@ -151,6 +163,9 @@ function Search() {
         )}
       </main>
     </div>
+    )}
+    </>
+    
   );
 }
 

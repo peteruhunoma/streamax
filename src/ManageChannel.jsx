@@ -9,6 +9,7 @@ import SideNav from './SideNav';
 function ManageChannel() {
     const {currentuser} = useContext(AuthContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [fullname, setFullname] = useState([]);
     const [getSub, setGetSub] = useState([]);
     const [subed, setSubed] = useState([]);
@@ -121,10 +122,19 @@ function ManageChannel() {
       
     }
     useEffect(() => {
-      videos();
-      getSubs();
-      personalvideos();
-      getUserImage();
+      
+
+      const fetchData = async () => {
+        setIsLoading(true);
+        await Promise.all([videos(),
+          getSubs(),
+          personalvideos(),
+          getUserImage()
+    ]);
+        setIsLoading(false);
+      };
+      
+      fetchData();
     }, []);
     
     console.log(fullname, "fullname")
@@ -151,6 +161,11 @@ function ManageChannel() {
       
 
   return (
+
+<>
+{isLoading ? (
+<div>loading</div>
+):(
 <div className="antialiased selection:bg-primary selection:text-on-primary">
   {/* TopNavBar Execution */}
   <Header onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
@@ -322,6 +337,9 @@ function ManageChannel() {
     </footer>
   </main>
 </div>
+)}
+</>
+
   )
 }
 

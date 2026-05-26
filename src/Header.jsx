@@ -74,7 +74,7 @@ export default function Header({ onMenuToggle }) {
           >
             <span className="material-symbols-outlined text-on-surface">menu</span>
           </button>
-          <span className="text-2xl font-extrabold text-[#b4c5ff] tracking-tighter font-headline">Cinematic Canvas</span>
+          <span className="text-2xl font-extrabold text-[#b4c5ff] tracking-tighter font-headline">Streamax</span>
         </div>
         
         {/* Center: Search */}

@@ -10,6 +10,7 @@ export default function LikedVideosPage() {
   // Mobile responsive sidebar navigation drawer state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [likedVideos, setLikedVideos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const {currentuser} = useContext(AuthContext);
   const history = useHistory();
 
@@ -42,11 +43,23 @@ export default function LikedVideosPage() {
 }
  
   useEffect(() => {
-    likedVideo();
+
+    const fetchData = async () => {
+      setIsLoading(true);
+      await Promise.all([ likedVideo() ]);
+      setIsLoading(false);
+    };
+    
+    fetchData();
+   
   }, [])
   
   return (
-    <div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-[#dae2fd]">
+ <>
+ {isLoading ? (
+  <div>loading</div>
+ ):(
+<div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-[#dae2fd]">
       
       {/* Navigation Headers */}
       <Header onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
@@ -156,5 +169,9 @@ export default function LikedVideosPage() {
         </div>
       </main>
     </div>
+ )}
+ </>
+ 
+ 
   );
 }

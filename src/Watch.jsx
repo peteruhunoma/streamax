@@ -9,6 +9,7 @@ import SideNav from './SideNav';
 
 const Watch = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [video, setVideo] = useState([]);
   const [selectedTag, setSelectedTag] = useState("All");
   const [videos, setVideos] = useState([]);
@@ -233,10 +234,14 @@ const fetchvideo = async ()=> {
 
 
     useEffect(() => {
-       fetchvideo();
-       fetchvideos();
-       getComments();
-       getLikes();
+      
+       const fetchData = async () => {
+        setIsLoading(true);
+        await Promise.all([ fetchvideo(), fetchvideos(), getComments(), getLikes()]);
+        setIsLoading(false);
+      };
+      
+      fetchData();
     }, [])
     const filteredVideos = selectedTag === 'All' 
     ? videos 
@@ -245,7 +250,11 @@ const fetchvideo = async ()=> {
       );
 
   return (
-<div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-on-surface">
+    <>
+    {isLoading ? (
+    <div>loading</div>
+    ) : (
+    <div className="custom-scrollbar overflow-x-hidden min-h-screen bg-[#060e20] text-on-surface">
       {/* Toast Alert Notification */}
       {showToast && (
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-[#2d3449] text-[#dae2fd] px-6 py-3 rounded-xl font-medium text-sm shadow-2xl border border-[#b4c5ff]/20 z-[1000] transition-all animate-fade-in">
@@ -472,6 +481,9 @@ const fetchvideo = async ()=> {
         </div>
       </main>
     </div>
+    )}
+    </>
+
   );
 };
 

@@ -10,30 +10,50 @@ import { AuthContext } from './auth';
 function Home() {
   const {currentuser} = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [videos, setVideos] = useState([]);
   const [shorts, setShorts] = useState([]);
   const history = useHistory();
 const video = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts`);
-  console.log(res);
-  setVideos(res.data)
+  
+  try{
+    const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts`);
+    console.log(res);
+    setVideos(res.data)
+  }catch(err){
+    console.log(err);
+  }
+  
 }
 const short = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts/short`);
-  console.log(res);
-  setShorts(res.data);
+  try{
+    const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts/short`);
+    console.log(res);
+    setShorts(res.data);
+  }catch(err){
+    console.log(err);
+  }
+ 
 }
 
 const direct = async (id) => {
   history.push(`/watch/${id}`)
 }
 useEffect(() => {
-   video();
-   short();
-}, [])
+  const fetchData = async () => {
+    setIsLoading(true);
+    await Promise.all([video(), short()]);
+    setIsLoading(false);
+  };
+  
+  fetchData();
+}, []);
 
 return (
-
+  <>
+  {isLoading ? (
+  <div>loading</div>
+  ) : (
   <div className="font-body min-h-screen bg-[#060e20] text-on-surface selection:bg-primary selection:text-on-primary">
       <Header onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
       
@@ -110,6 +130,9 @@ return (
 
   
 </div>
+)}
+  </>
+
 );
 }
 
