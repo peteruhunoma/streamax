@@ -128,6 +128,15 @@ export default function Header({ onMenuToggle }) {
                 </button>
 
                 <hr className="border-[#2d3449] my-1" />
+                
+                <Link to='/uploadprofile'
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-[#dae2fd] hover:bg-[#2d3449]/60 transition-colors text-left"
+                >
+                  <span className="material-symbols-outlined text-lg text-[#b4c5ff]">account_box</span>
+                  <span>Upload Profile Picture</span>
+                </Link>
+
+                <hr className="border-[#2d3449] my-1" />
 
                 <button
                   onClick={()=> handleLogout()}

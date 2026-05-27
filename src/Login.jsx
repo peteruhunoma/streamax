@@ -19,18 +19,6 @@ function Login(){
         setPasswordText("password");
      }, [])
      
-     const handleVisibility = ()=>{
-     
-       
-       console.log(passwordVisibility === false)
-         if (passwordVisibility === false){
-             setPasswordText("text");
-             setPasswordVisibility(true);
-         }else if (passwordVisibility === true){
-             setPasswordText("password");
-             setPasswordVisibility(false);
-         }
-     }
     
    const handleSubmit = async(e) =>{
      e.preventDefault();
