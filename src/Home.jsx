@@ -89,7 +89,7 @@ return (
             <img 
               alt={item.title} 
               className="w-full h-full object-cover" 
-              src={`/uploads/${item.username}/${item.title}/${item.thumbnails}`} 
+              src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${item.thumbnails}`} 
             />
             <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[11px] font-bold text-white rounded">
               14:32
@@ -107,7 +107,7 @@ return (
               <img 
                 alt="Channel Avatar" 
                 className="w-full h-full object-cover"
-                src={`../public/uploadeduser/${item.username}/${item.userimage}`} 
+                src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${item.userimage}`} 
               />
             </div>
             <div className="flex flex-col gap-0.5 flex-1 min-w-0">

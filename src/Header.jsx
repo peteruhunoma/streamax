@@ -109,10 +109,10 @@ export default function Header({ onMenuToggle }) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`w-8 h-8 rounded-full overflow-hidden border border-outline-variant/20 hover:ring-2 ring-primary/50 cursor-pointer transition-all ${isMenuOpen ? 'ring-2 ring-[#b4c5ff]' : ''}`}
             >
-              <img 
-                alt="User Profile Avatar" 
-                src={`../public/uploadeduser/${currentuser.fullname}/${imageview}`}
-              />
+<img 
+  alt="User Profile Avatar" 
+  src={imageview ? `https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${imageview}` : "https://res.cloudinary.com/dsypjacgn/image/upload/v1780138445/default_p42fbh.png"} 
+/>
             </div>
 
             {/* Popup Menu Dropdown */}

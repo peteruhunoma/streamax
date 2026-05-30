@@ -185,7 +185,7 @@ function ManageChannel() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-full p-1 bg-background ring-4 ring-surface-container-high overflow-hidden">
-            <img alt="Studio Nexus Avatar" className="w-full h-full rounded-full object-cover" src={`../public/uploadeduser/${fullname.fullname}/${imageview}`}/>
+            <img alt="Studio Nexus Avatar" className="w-full h-full rounded-full object-cover" src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${imageview}`}/>
           </div>
           <div className="text-center md:text-left pt-4">
             <h1 className="font-headline text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter">{fullname.fullname}</h1>
@@ -230,7 +230,7 @@ function ManageChannel() {
                   <img 
                     alt="Video Thumbnail" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                    src={`../public/uploads/${item.username}/${item.title}/${item.thumbnails}`}
+                    src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${item.thumbnails}`}
                   />
                   <div className="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 text-[10px] font-bold rounded text-white">
                     08:45
@@ -299,7 +299,7 @@ function ManageChannel() {
                   <img 
                     alt="Video Thumbnail" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                    src={`../public/uploads/${item.username}/${item.title}/${item.thumbnails}`}
+                    src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${item.thumbnails}`}
                   />
                   <div className="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 text-[10px] font-bold rounded text-white">
                     08:45

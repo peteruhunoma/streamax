@@ -283,7 +283,7 @@ const fetchvideo = async ()=> {
             {/* Native Video Canvas Instance Container */}
             <div className="w-full rounded-2xl overflow-hidden bg-black aspect-video shadow-2xl shadow-black/40">
               <VideoPlayer 
-                src={`/uploads/${video.username}/${video.title}/${video.video}`} 
+                src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${video.video}`} 
               />
             </div>
 
@@ -318,7 +318,7 @@ const fetchvideo = async ()=> {
                 className="flex items-center gap-4 cursor-pointer group"
               >
                 <div className="w-11 h-11 rounded-full overflow-hidden border border-[#b4c5ff]/20 group-hover:border-[#b4c5ff]/60 transition-colors">
-                  <img alt="Channel Avatar" className="w-full h-full object-cover" src={`../public/uploadeduser/${video.username}/${userimage}`} />
+                  <img alt="Channel Avatar" className="w-full h-full object-cover" src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${userimage}`} />
                 </div>
                 <div>
                   <h3 className="font-bold text-[#dae2fd] text-sm md:text-base flex items-center gap-1 group-hover:text-[#b4c5ff] transition-colors">
@@ -447,7 +447,7 @@ const fetchvideo = async ()=> {
                     <img 
                       alt="Video Thumbnail" 
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" 
-                      src={`/uploads/${recVideo.username}/${recVideo.title}/${recVideo.thumbnails}`} 
+                      src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${recVideo.thumbnails}`} 
                     />
                     <span className="absolute bottom-1 right-1 bg-black/80 backdrop-blur text-[10px] px-1.5 py-0.5 rounded text-white font-bold tracking-wider">
                       12:45

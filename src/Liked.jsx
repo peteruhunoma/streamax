@@ -120,7 +120,7 @@ export default function LikedVideosPage() {
         <img 
           alt="Video Preview Block" 
           className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" 
-          src={`/uploads/${video.username}/${video.title}/${video.thumbnails}`} 
+          src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${video.thumbnails}`} 
         />
         <span className="absolute bottom-1.5 right-1.5 bg-black/80 backdrop-blur text-[10px] px-1.5 py-0.5 rounded text-white font-bold tracking-wider">
           {video.duration}

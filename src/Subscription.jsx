@@ -92,7 +92,7 @@ export default function SubscriptionsPage() {
                   <img 
                     alt={channel.fullname} 
                     className="w-full h-full object-cover rounded-full bg-[#060e20]" 
-                    src={`../public/uploadeduser/${channel.fullname}/${channel.userimage}`} 
+                    src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${channel.userimage}`} 
                   />
                 </div>
                 <span className="text-[11px] text-[#c6c6cd]/80 font-medium tracking-tight truncate max-w-[80px] group-hover:text-[#b4c5ff] transition-colors">
@@ -130,7 +130,7 @@ export default function SubscriptionsPage() {
         <img 
           alt={video.title} 
           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" 
-          src={`../public/uploads/${channel.fullname}/${video.title}/${video.thumbnails}`} 
+          src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${video.thumbnails}`} 
         />
         
         {/* Timeline Tracker Duration Overlay */}
@@ -142,7 +142,7 @@ export default function SubscriptionsPage() {
       {/* Creator Avatar & Context Details Metadata Frame */}
       <div className="flex gap-3 px-1">
         <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2d3449]/40 shrink-0 mt-0.5 shadow-md">
-          <img alt={channel.username} className="w-full h-full object-cover" src={`../public/uploadeduser/${channel.fullname}/${channel.userimage}`} />
+          <img alt={channel.username} className="w-full h-full object-cover" src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${channel.userimage}`} />
         </div>
         
         <div className="flex-1 min-w-0 flex flex-col">

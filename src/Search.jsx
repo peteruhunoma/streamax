@@ -25,6 +25,7 @@ function Search() {
       // Adjust this endpoint based on how your backend handles search queries
       const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts/search?q=${query}`);
       setResults(res.data);
+      console.log(res)
     } catch (error) {
       console.error("Error fetching search results:", error);
     } finally {
@@ -120,7 +121,7 @@ function Search() {
                   <img 
                     alt={item.title} 
                     className="w-full h-full object-cover" 
-                    src={`/uploads/${item.username}/${item.title}/${item.thumbnails}`} 
+                    src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${item.thumbnails}`} 
                   />
                   <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[11px] font-bold text-white rounded">
                     14:32
@@ -144,13 +145,8 @@ function Search() {
 
                   {/* Channel Meta Row */}
                   <div className="flex items-center gap-2 my-1">
-                    <div className="w-6 h-6 rounded-full overflow-hidden border border-[#b4c5ff]/10 flex-shrink-0">
-                      <img 
-                        alt="Channel Avatar" 
-                        className="w-full h-full object-cover"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlj77df8L_6yEhVkG9P3u2fG-DkHM3E2Hc532g59sMi4u4XicKFWzRcOqjA8F_VslfiYocIBe9GObIJgh-LCEcfvvQjeHKguvJSVgdxZpUnq7ALOLIhXFRYNJQkUpel33onBQcn-250c8hmVv__gyRbAlJnliCrH3OAP4MWqEHrpwUh794wvM75pEeGeqrp5Ir9MACDENhohAaJKm8cO8f9yCyedxHodj-GoE57CWt17sWw4SEGNkFV91nME_8Q1MeK4vv5TUelHwo" 
-                      />
-                    </div>
+                    
+                    
                     <p className="text-[#c6c6cd] text-xs font-medium truncate capitalize">
                       {item.username}
                     </p>
