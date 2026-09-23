@@ -92,7 +92,7 @@ function Signup() {
           {/* Brand Identity */}
           <div className="mb-10 text-center">
             <h1 className="font-headline text-3xl font-extrabold tracking-tighter text-on-surface uppercase mb-2">
-              Cinematic Canvas
+              Streamax
             </h1>
             <p className="text-on-surface-variant font-label tracking-wide text-xs uppercase">
               Atmospheric Immersion
@@ -167,7 +167,7 @@ function Signup() {
                     <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">
                       shield
                     </span>
-                    <input type={passwordText} onChange={e => setConfirmPassword(e.target.value)}
+                    <input type="password" onChange={e => setConfirmPassword(e.target.value)}
                     className="w-full bg-surface-container-lowest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary focus:bg-surface-container-low transition-all duration-300" id="confirm-password" placeholder="••••••••"  />
                   </div>
                   <p className='text-red mt-2 mt-2'>{confirmPasswordError}</p>
