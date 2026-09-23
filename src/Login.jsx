@@ -68,7 +68,7 @@ return(
   {/* <!-- Top Navigation Anchor (Suppressed Shell for focus) --> */}
   <header className="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20">
     <div className="text-2xl font-headline font-bold tracking-tighter text-on-surface uppercase">
-      Cinematic Canvas
+      Streamax
     </div>
     <div className="flex items-center gap-4">
       <span className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
