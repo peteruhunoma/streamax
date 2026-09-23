@@ -24,7 +24,7 @@ export default function Header({ onMenuToggle }) {
   }, []);
 
   const handleUploadRedirect = () => {
-    window.location.href = '/upload';
+    history.push('/upload');
   };
 
   const handleManageChannel = () => {
