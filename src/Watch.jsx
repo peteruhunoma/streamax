@@ -5,6 +5,7 @@ import { useLocation, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import moment from 'moment';
 import Header from './Header';
 import SideNav from './SideNav';
+import VideoPost from './VideoPost';
 
 
 const Watch = () => {
@@ -281,11 +282,15 @@ const fetchvideo = async ()=> {
           {/* Left Column Area: Main Video Stream, Metadata, and Comments */}
           <div className="lg:col-span-8 flex flex-col">
             {/* Native Video Canvas Instance Container */}
-            <div className="w-full rounded-2xl overflow-hidden bg-black aspect-video shadow-2xl shadow-black/40">
-              <VideoPlayer 
-                src={`https://res.cloudinary.com/dsypjacgn/image/upload/v1780135714/${video.video}`} 
-              />
-            </div>
+            <div className="w-full h-[60vh] md:h-[70vh] max-h-[600px] bg-black rounded-lg overflow-hidden">
+  <video
+    className="w-full h-full object-contain"
+    src={`https://res.cloudinary.com/dsypjacgn/video/upload/v1780135714/${video.video}`}
+    controls
+    playsInline
+    preload="metadata"
+  />
+</div>
 
             {/* Video Meta Title Block */}
             <div className="mt-6">
