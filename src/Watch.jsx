@@ -1,11 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
-import {VideoPlayer} from 'react-video-master'; 
 import { useLocation, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import moment from 'moment';
 import Header from './Header';
 import SideNav from './SideNav';
-import VideoPost from './VideoPost';
 
 
 const Watch = () => {
